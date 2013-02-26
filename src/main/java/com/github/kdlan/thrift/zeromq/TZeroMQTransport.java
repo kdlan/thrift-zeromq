@@ -97,20 +97,4 @@ public class TZeroMQTransport extends TTransport {
         os.write(buf, off, len);
     }
 
-    public static void main(String[] args) throws InterruptedException {
-
-        ZMQ.Context context = ZMQ.context();
-        ZMQ.Socket server = context.socket(ZMQ.DEALER);
-        server.bind("tcp://*:12345");
-        server.bind("tcp://*:12346");
-
-        ZMQ.Socket socket = context.socket(ZMQ.ROUTER);
-        socket.connect("tcp://127.0.0.1:12345");
-        socket.send("".getBytes());
-        socket.close();
-        Thread.sleep(1000);
-
-        server.close();
-        context.term();
-    }
 }
