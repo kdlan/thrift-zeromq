@@ -1,0 +1,15 @@
+target
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# Intellij IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+
+logs
